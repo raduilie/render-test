@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const morgan = require('morgan')
 
 let notes = [
   {
@@ -22,6 +23,7 @@ let notes = [
 
 app.use(express.json())
 app.use(cors())
+app.use(morgan('tiny'))
 
 app.get('/', (request, response) => {
   response.send('<h1>Hello World!</h1>')
